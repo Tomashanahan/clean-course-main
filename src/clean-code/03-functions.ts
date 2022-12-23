@@ -43,4 +43,39 @@
 		console.log("Crear actor");
 		return true;
 	}
+
+	// BAD way to make a function
+	//// const getPayAmount = ({ isDead = false, isSeparated = true, isRetired = false }): number => {
+	//// 	let result: number;
+	//// 	if (isDead) {
+	//// 		result = 1500;
+	//// 	} else {
+	//// 		if (isSeparated) {
+	//// 			result = 2500;
+	//// 		} else {
+	//// 			if (isRetired) {
+	//// 				result = 3000;
+	//// 			} else {
+	//// 				result = 4000;
+	//// 			}
+	//// 		}
+	//// 	}
+
+	//// 	return result;
+	//// };
+
+	// Better approach to implement the function
+	const getPayAmount = ({ isDead = false, isSeparated = true, isRetired = false }): number => {
+		if (isDead) {
+			return 1500;
+		}
+		if (isSeparated) {
+			return 2500;
+		}
+		if (isRetired) {
+			return 3000;
+		}
+
+		return 4000;
+	};
 })();
